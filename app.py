@@ -44,6 +44,10 @@ def main():
 
     # write a line jsonifying the session state
     # st.write(st.session_state)
+    
+    # write embeddings model and completion model nme
+    st.write(f"Embeddings model used: {os.getenv('EMBEDDINGS_MODEL')}")
+    st.write(f"Completion model used: {os.getenv('COMPLETION_MODEL')}")
 
     first_col, second_col = st.columns(2)
 
