@@ -1,3 +1,5 @@
+import base64
+
 
 def to_base64(file):
     """
