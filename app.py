@@ -97,6 +97,8 @@ def main():
             __output = load_pdf(file_info['obj_storage_location'])
             # change the streamlit
             __output = generate_embeddings(__output, client)
+            # save filename as a tag
+            __output['filename'] = uploaded_file.name
             st.session_state['embeddings'] = __output
             # ---------------------------------- Section sep ------------------------------------
             st.rerun()
@@ -125,6 +127,11 @@ def main():
                             new_file_info = uploaded_file.copy()  # Make a copy of the dictionary
                             new_file_info['deleted'] = True
                             st.session_state['files'][i] = new_file_info
+                            # remove the embeddings that match the file
+                            st.session_state['embeddings'] = [
+                                emb for emb in st.session_state['embeddings'] if emb['filename'] != uploaded_file['name']
+                            ]
+
                             st.rerun()
 
     # first title
