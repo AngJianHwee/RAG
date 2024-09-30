@@ -10,10 +10,6 @@ from dotenv import load_dotenv
 import numpy as np
 
 load_dotenv()
-print(f"loaded API_KEY: {os.getenv('API_KEY')}")
-print(f"loaded API_BASE: {os.getenv('API_BASE')}")
-print(f"loaded EMBEDDING_MODEL: {os.getenv('EMBEDDING_MODEL')}")
-print(f"loaded COMPLETION_MODEL: {os.getenv('COMPLETION_MODEL')}")
 
 # Define the default state of the app
 DEFAULT_STATE = {
@@ -169,7 +165,6 @@ def main():
         similarity = []
 
         for embedding in st.session_state['embeddings']:
-            print(embedding, flush=True)
             similarity.append(
                 (embedding['text'], np.dot(
                     user_input_embedding, embedding['embedding']))
