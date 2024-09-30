@@ -39,6 +39,9 @@ client = create_client()
 
 def main():
 
+    # tab title
+    st.set_page_config(page_title='RAG-enhanced PDF Chatbot')
+    
     # title
     st.title('RAG-enhanced PDF Chatbot')
 
