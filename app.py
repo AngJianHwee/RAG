@@ -94,7 +94,9 @@ def main():
             # change the streamlit
             __output = generate_embeddings(__output, client)
             # save filename as a tag
-            __output['filename'] = uploaded_file.name
+            for emb in __output:
+                emb['filename'] = uploaded_file.name
+            # save the embeddings
             st.session_state['embeddings'] = __output
             # ---------------------------------- Section sep ------------------------------------
             st.rerun()
